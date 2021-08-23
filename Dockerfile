@@ -1,8 +1,4 @@
-ARG BUILDER_IMAGE=index.docker.io/library/golang@sha256:634cda4edda00e59167e944cdef546e2d62da71ef1809387093a377ae3404df0
-ARG RUNTIME_IMAGE=gcr.io/distroless/static@sha256:c9320b754c2fa2cd2dea50993195f104a24f4c7ebe6e0297c6ddb40ce3679e7d
-
-
-FROM $BUILDER_IMAGE as builder
+FROM golang:1.16-buster AS builder
 
         WORKDIR /workspace
 
@@ -12,7 +8,7 @@ FROM $BUILDER_IMAGE as builder
         COPY pkg/     pkg/
         COPY cmd/     cmd/
 
-        RUN set -x && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on \
+        RUN set -x && CGO_ENABLED=0 GOOS=linux GO111MODULE=on \
                 go build -a -v \
 			-trimpath \
 			-tags osusergo,netgo,static_build \
@@ -20,8 +16,7 @@ FROM $BUILDER_IMAGE as builder
 				./cmd/monero-exporter
 
 
-FROM $RUNTIME_IMAGE
-
+FROM gcr.io/distroless/base-debian10
         WORKDIR /
         COPY --chown=nonroot:nonroot --from=builder /workspace/monero-exporter .
         USER nonroot:nonroot
