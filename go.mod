@@ -1,4 +1,4 @@
-module github.com/cirocosta/monero-exporter
+module github.com/tkeber/monero-exporter
 
 go 1.17
 

@@ -16,7 +16,7 @@ linters:
     - funlen
     - gocognit
     - goconst
-    # - gocritic
+    - gocritic
     - gocyclo
     - godot
     - godox
@@ -54,9 +54,15 @@ linters:
 
 linters-settings:
   goimports:
-    local-prefixes: github.com/cirocosta/monero-exporter
+    local-prefixes: github.com/tkeber/monero-exporter
   exhaustive:
     default-signifies-exhaustive: true
+  gocritic:
+    enabled-checks:
+      - ruleguard
+    settings:
+      ruleguard:
+        rules: "no-such-file.go"
 
 run:
   timeout: 5m
