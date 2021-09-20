@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/beorn7/perks v1.0.1
 	github.com/cirocosta/go-monero v0.0.5
+	github.com/cirocosta/monero-exporter v0.0.2
 	github.com/go-logr/logr v1.0.0
 	github.com/go-logr/zapr v1.0.0
 	github.com/golangci/golangci-lint v1.42.0
@@ -12,7 +13,6 @@ require (
 	github.com/prometheus/client_golang v1.11.0
 	github.com/spf13/cobra v1.2.1
 	go.uber.org/zap v1.19.0
-	golang.org/x/net v0.0.0-20210716203947-853a461950ff // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
