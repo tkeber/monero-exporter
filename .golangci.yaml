@@ -1,4 +1,5 @@
 linters:
+  disable-all: true
   enable:
     - asciicheck
     - bodyclose
@@ -57,12 +58,6 @@ linters-settings:
     local-prefixes: github.com/tkeber/monero-exporter
   exhaustive:
     default-signifies-exhaustive: true
-  gocritic:
-    enabled-checks:
-      - ruleguard
-    settings:
-      ruleguard:
-        rules: "no-such-file.go"
 
 run:
   timeout: 5m
