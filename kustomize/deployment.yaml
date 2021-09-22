@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monero-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monero
+  template:
+    metadata:
+      labels:
+        app: monero
+    spec:
+      containers:
+        - args:
+            - --monero-addr=http://monero:18081
+            - --bind-addr=:9000
+          image: tkeber/monero-exporter:latest
+          imagePullPolicy: IfNotPresent
+          name: monero-exporter
+      tolerations: []
