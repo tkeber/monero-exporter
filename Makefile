@@ -3,6 +3,7 @@ SPACE := $(subst ,, )
 
 install:
 	go install -v ./cmd/monero-exporter
+	go mod download github.com/yuin/goldmark
 	go get -v -u github.com/quasilyte/go-ruleguard/dsl
 
 run:
