@@ -33,11 +33,9 @@ func (c *RPCCollector) Name() string {
 }
 
 func (c *RPCCollector) Collect(ctx context.Context) error {
-	err := c.fetchData(ctx)
-	if err != nil {
+	if err := c.fetchData(ctx); err != nil {
 		return fmt.Errorf("fetch data: %w", err)
 	}
-
 	c.collectRPC()
 
 	return nil

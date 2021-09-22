@@ -61,16 +61,19 @@ func (s *Summary) Insert(v float64) {
 
 func (s *Summary) Count() uint64 {
 	s.compute()
+
 	return s.count
 }
 
 func (s *Summary) Quantiles() map[float64]float64 {
 	s.compute()
+
 	return s.quantiles
 }
 
 func (s *Summary) Sum() float64 {
 	s.compute()
+
 	return s.sum
 }
 

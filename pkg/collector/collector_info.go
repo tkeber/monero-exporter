@@ -33,8 +33,7 @@ func (c *OverallCollector) Name() string {
 }
 
 func (c *OverallCollector) Collect(ctx context.Context) error {
-	err := c.fetchData(ctx)
-	if err != nil {
+	if err := c.fetchData(ctx); err != nil {
 		return fmt.Errorf("fetch data: %w", err)
 	}
 

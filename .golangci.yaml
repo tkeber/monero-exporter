@@ -1,5 +1,6 @@
 linters:
-  disable-all: true
+  disable:
+    - unused
   enable:
     - asciicheck
     - bodyclose
@@ -14,7 +15,6 @@ linters:
     - exportloopref
     - forbidigo
     - forcetypeassert
-    - funlen
     - gocognit
     - goconst
     - gocritic
@@ -22,7 +22,6 @@ linters:
     - godot
     - godox
     - goerr113
-    - goimports
     - gosec
     - govet
     - ifshort
@@ -44,10 +43,7 @@ linters:
     - structcheck
     - tagliatelle
     - testpackage
-    - typecheck
-    - unconvert
     - unparam
-    - unused
     - varcheck
     - wastedassign
     - whitespace
