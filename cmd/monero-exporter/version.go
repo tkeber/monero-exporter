@@ -11,6 +11,7 @@ var (
 	commit  = "dev"
 )
 
+//nolint
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "print the version of this CLI",

@@ -56,7 +56,7 @@ func WithBindAddress(v string) Option {
 	}
 }
 
-// Option allows overriding the exporter's defaults
+// Option allows overriding the exporter's defaults.
 //
 type Option func(e *Exporter)
 

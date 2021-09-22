@@ -35,8 +35,7 @@ func (c *LastBlockStatsCollector) Name() string {
 }
 
 func (c *LastBlockStatsCollector) Collect(ctx context.Context) error {
-	err := c.fetchData(ctx)
-	if err != nil {
+	if err := c.fetchData(ctx); err != nil {
 		return fmt.Errorf("fetch last block data: %w", err)
 	}
 

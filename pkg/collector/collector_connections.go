@@ -32,8 +32,7 @@ func (c *ConnectionsCollector) Name() string {
 }
 
 func (c *ConnectionsCollector) Collect(ctx context.Context) error {
-	err := c.fetchData(ctx)
-	if err != nil {
+	if err := c.fetchData(ctx); err != nil {
 		return fmt.Errorf("fetch data: %w", err)
 	}
 
@@ -147,5 +146,6 @@ func (c *ConnectionsCollector) fetchData(ctx context.Context) error {
 	}
 
 	c.connections = res
+
 	return nil
 }
